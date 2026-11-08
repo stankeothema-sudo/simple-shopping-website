@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Shopping Cart</title>
+  <link rel="stylesheet" href="SwiftMart.css">
+  <style>
+    #text{
+            text-align: center;
+        }
+    body{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .product {
+         border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; 
+        }
+    .cart {
+         margin-top: 20px;
+         }
+    .cart-item {
+         display: flex; justify-content: space-between; margin-bottom: 5px;
+         }
+    .error {
+         color: red; font-size: 0.9em; 
+        }
+  </style>
+</head>
+<body>
+    <header>
+        <nav id = "navbar" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            <a>
+                <img src="download.jpg" alt="IMAGE NOT AVAILABLE" class="logo">
+            </a>
+            <ul>
+                <li><a href="SwiftMart.html"><h1>Home page</a></li>
+                <li><a href="ProductsPage.html"><h1>Products</a></li>
+                
+                
+                
+            </ul>
+        </nav>
+
+        <header class="banner-section">
+        <div class="banner-content">
+            <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Welcom to Swift Mart!</h1>
+            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Come look at our amazing tech that will make you look forward toward the future</h3>
+            
+            
+        </div>
+        </header>
+
+  <h2>Products</h2>
+    <div class="product">
+    <p><strong>Fridge <p><img src="https://drommedaris.co.za/wp-content/uploads/2021/03/za-top-mount-freezer-rt62k7110sl-rt62k7110sl-fa-002-r-perspective-transparent-1.jpg" height="250" alt="">
+</p>
+    </strong> - R12,000.00</p>
+    <button onclick="addToCart('Product A', 12000.00)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <p><strong>Washing Machine<p><img src="https://www.incredible.co.za/api/catalog/product/w/w/ww80bs_front_ecommerce_d85d.png?store=incredibleconnection&image-type=image" height="250" alt="">
+</p>
+    </strong> - $8000</p>
+    <button onclick="addToCart('Product B', 8000.00)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <p><strong>Windows 11 Home<p><img src="https://static.independent.co.uk/2025/08/27/16/02/Best-laptops-Indybest-review.png" height="250" alt=""></p></strong> - R13,000.00</p>
+    <button onclick="addToCart('Product C', 13000.00)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <p><strong>HyperJuice 245W USB-C Power Bank<p>                <img src="https://www.digicape.co.za/image/cache/catalog/_products/2024/Hyper/HyperJuice_245W_USB_C_Power_Bank_Space_Grey_0-1000x1000.jpg" height="250" alt="">
+</p></strong> - R,3200.00</p>
+    <button onclick="addToCart('Product D', 3200.00)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <p><strong>Smart watch<p>                <img src="https://m.media-amazon.com/images/I/71HA+BgM+HL._AC_SY450_.jpg" height="250" alt="">
+</p></strong> - R500.00</p>
+    <button onclick="addToCart('Product E', 500.00)">Add to Cart</button>
+  </div>
+   <div class="product">
+    <p><strong>Headphones<p>                <img src="https://www.elevenpast.co.za/cdn/shop/files/oh1954-40088731517124_700x700.jpg?v=1726357556" height="250" alt="">
+</p></strong> - R300</p>
+    <button onclick="addToCart('Product F', 300)">Add to Cart</button>
+  </div>
+
+  <h2>Cart</h2>
+  <div id="cart" class="cart"></div>
+  <p><strong>Total Quantity:</strong> <span id="totalQty">0</span></p>
+  <p><strong>Total Price:</strong> R<span id="totalPrice">0</span></p>
+
+  <h2>Checkout Form</h2>
+  <form id="checkoutForm" onsubmit="return validateForm()">
+    <label>Name: <input type="text" id="name" required /></label><br/><br/>
+    <label>Email: <input type="email" id="email" required /></label><br/><br/>
+    <button type="submit">Submit</button>
+    <p id="formError" class="error"></p>
+  </form>
+
+  <script>
+    const cartItems = [];
+    function addToCart(name, price) {
+      const existing = cartItems.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cartItems.push({ name, price, qty: 1 });
+      }
+      updateCart();
+    }
+
+    function removeFromCart(name) {
+      const index = cartItems.findIndex(item => item.name === name);
+      if (index !== -1) {
+        cartItems.splice(index, 1);
+        updateCart();
+      }
+    }
+
+    function updateCart() {
+      const cartDiv = document.getElementById('cart');
+      cartDiv.innerHTML = '';
+      let totalQty = 0, totalPrice = 0;
+      cartItems.forEach(item => {
+        totalQty += item.qty;
+        totalPrice += item.price * item.qty;
+        cartDiv.innerHTML += `
+          <div class="cart-item">
+            ${item.name} x${item.qty} - $${item.price * item.qty}
+            <button onclick="removeFromCart('${item.name}')">Remove</button>
+          </div>`;
+      });
+      document.getElementById('totalQty').textContent = totalQty;
+      document.getElementById('totalPrice').textContent = totalPrice;
+    }
+
+    function validateForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const errorDiv = document.getElementById('formError');
+      errorDiv.textContent = '';
+
+      if (!name || !email) {
+        errorDiv.textContent = 'All fields are required.';
+        return false;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        errorDiv.textContent = 'Please enter a valid email address.';
+        return false;
+      }
+
+      alert('Form submitted successfully!');
+      return true;
+    }
+  </script>
+
+  <div class="footer">
+        <p>&copy; 2025 Swift Mart</p>
+    </div>
+
+</body>
+</html>

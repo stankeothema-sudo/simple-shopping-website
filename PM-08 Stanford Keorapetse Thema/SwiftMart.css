@@ -1,0 +1,213 @@
+#navbar .logo{
+    height: 150px;
+    width: 150px;
+    border-radius: 100pt;
+}
+
+/* styling nav bar */
+#navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    background-color: skyblue;
+}
+
+/* styling the list items */
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 5px;
+
+    /* text-decoratin none; */
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    cursor: all-scroll;
+    padding: 5px;
+
+    gap: 5px
+    
+}
+
+nav ul li a:hover{
+    background-color: blue;
+    transition: 1s;
+    text-decoration: underline;
+
+}
+
+.gallery{
+
+    margin-top: 30px;
+    height: 100px;
+    width: 100px;
+    flex: content;
+    
+}
+.content{
+    background-color: black;
+}
+
+
+.banner-section {
+    background-image: url('https://www.eurokidsindia.com/blog/wp-content/uploads/2023/12/names-of-electronic-devices-in-english.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255); /* Text color for content */
+    text-align: center;
+}
+
+.banner-content {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    border-radius: 8px;
+}
+
+.banner-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: #7c7c7c;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+
+
+.Home {
+    background-image: url('https://cdn.firstcry.com/education/2023/01/13101355/Names-Of-Household-Appliances-In-English.jpg');
+    background-size: cover;
+    height: 600px;
+    display: flex;
+    padding: 20px;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 5px solid rgb(0, 110, 255);
+    text-align: center;
+}
+
+.Home_items {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    border-radius: 8px;
+}
+
+.Portable{
+    background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhplVHlP7CGou3DjhFJDbbVn7duhFrlkvGbAwU6fHKgqpYvdcsLZo89rtkAWh4Zcg4ANnb_r2pF097D94imr16AVMtX2Fn7cq340S38x-d8FdnTqbruy0jsrh0n_g3NiAvemsnpQwbOots/s1600/2011-Technology.jpg');
+    background-size: cover;
+    height: 600px;
+    display: flex;
+    padding: 20px;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 5px solid rgb(0, 110, 255);
+    text-align: center;
+}
+
+.Portable_items {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    border-radius: 8px;
+}
+p{
+    font-weight: bold;
+}
+
+.accessory{
+    background-image: url('https://phoneloops.com/cdn/shop/articles/AdobeStock_142348781_1280x.jpg?v=1642693337');
+    background-size: cover;
+    height: 600px;
+    display: flex;
+    padding: 20px;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 5px solid rgb(0, 110, 255);
+    text-align: center;
+}
+
+.accessory_items{
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    border-radius: 8px;
+}
+
+.specials{
+    background-image: url('https://media.istockphoto.com/id/2110239583/photo/cheese-burger-strawberry-shake-and-french-fries.jpg?s=612x612&w=0&k=20&c=HK-M56hZQVNJ8mGadxM8GNNsTDJPV9pjpTtvZpeJW2s=');
+    background-size: cover;
+    height: 600px;
+    display: flex;
+    padding: 20px;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 5px solid rgb(255, 196, 0);
+    text-align: center;
+}
+
+.special_items{
+     padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    border-radius: 8px;
+}
+
+.reservations{
+    background-image: url('data:image/jpeg;base64,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');
+    background-size: cover;
+    height: 700px;
+    display: flex;
+    padding: 20px;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 5px solid rgb(255, 196, 0);
+    border-radius: 5%;
+    text-align: center;
+}
+
+
+
+.reservations_submitions{
+     padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    border-radius: 8px;
+}
+
+
+@media (max-width: 768px) {
+    .banner-section {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+
+    .banner-content h1 {
+        font-size: 2em;
+    }
+
+    .banner-content p {
+        font-size: 1em;
+    }
+}
